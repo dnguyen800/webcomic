@@ -12,7 +12,7 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 
-REQUIREMENTS = ['bs4','requests']         # Python libraries or modules needed for this sensor
+REQUIREMENTS = ['requests', 'bs4']         # Python libraries or modules needed for this sensor
 # DEPENDENCIES = ['mqtt']   # Other Home Assistant Components needed for this sensor to work.
 
 __version__ = '0.0.1'
@@ -34,22 +34,26 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_NAME): cv.string,
     vol.Required(CONF_URL): cv.string,
     vol.Optional(CONF_REFRESH,
-                 default=DEFAULT_REFRESH): cv.int,
+                 default=DEFAULT_REFRESH): cv.positive_int,
 })
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup the sensor platform."""
-    add_devices([ComicSensor()])
+    _LOGGER.info("setup_platform called for Webcomic")   
+    add_devices([ComicSensor(hass, config)])
 
 
 class ComicSensor(Entity):
     """Representation of a Sensor."""
 
-    def __init__(self):
-        """Initialize the sensor."""
+    def __init__(self, hass, config):
+        """Initialize the sensor and variables."""
         self._state = None
         self._name = config[CONF_NAME]
         self._url = config[CONF_URL]
+        # This is where the comic URL data will be stored.
+        self.hass.data[self._name] = {}
+        self.update()
 
     @property
     def name(self):
