@@ -4,7 +4,7 @@ component to save the image.
 
 """
 
-import re                           # Regular expresssion object. Let's us search using wildcards
+import re                           # Regular expresssion object. Allows search using wildcards
 import requests                     # Sends HTTP request to website and saves the data
 from bs4 import BeautifulSoup       # Parses the HTML data into a Python object
 
@@ -19,14 +19,10 @@ def pullWebComic(url, filename):
     print("Comic: \n", comic)
     imgFound = False
     
-    # While image is not found, or image is null
     while imgFound == False:     
-        # Go through each tag labeled as 'comic':
         for c in comic:
         # Check if comic <img> tag is found in first attempt           
-            try:
-                
-                print("if c['src'] is True:")
+            try:               
                 print("c['src'] == ", c['src'])
                 if c['src'][0:4] == 'http':                            # Check for full URL
                     print("Full URL provided.")
