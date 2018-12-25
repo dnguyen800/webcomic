@@ -60,56 +60,37 @@ class ComicSensor(Entity):
         # This is where the comic URL data will be stored.
         self._comic_url = None
         self.update()
+
+
+    def check_url(self, c):
+        """Checks URL for issues, such as incompleteness, or whitespaces"""
+        try:
+            if c['src'][0:4] == 'http':                                         
+                self._comic_url = c['src'].replace(" ", "%20")
+                self._state = "URL found"
+            else:                      
+                self._comic_url = (self._url + c['src']).replace(" ", "%20")
+                self._state = "URL found"
+        except:
+            self._state = None
+            self._comic_url = None
+
     
     def update(self):
         """Fetch new state data for the sensor.
 
         This is the only method that should fetch new data for Home Assistant.
-        """
-
-        self._state = 'Updating'
+        """      
         user_agent = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         r = requests.get(self._url, headers=user_agent)
         soup = BeautifulSoup(r.text, 'html.parser')
         comic = soup.find_all(id=re.compile("comic"))
-        self._state = "Beautiful Soup completed"
         for c in comic:
-            try:
-                _LOGGER.info("c['src'] == %s ", c['src']) 
-                if c['src'][0:4] == 'http':                            
-                    _LOGGER.info("Full URL provided.")                    
-                    self._comic_url = c['src']
-                    self._state = "URL found"
-                    break
-                else:                      
-                    _LOGGER.info("Partial URL provided. %s", (self._url + c['src']))
-                    self._comic_url = self._url + c['src']
-                    self._state = "URL found"
-                    break
-            except:
-                _LOGGER.info("c['src'] does not exist")
-                self._state = "Not found"
-                
-            image = c.find_all('img')
-                
-            try:
-                _LOGGER.info("image: ")
-                for i in image:
-                    if i['src'][0:4] == 'http':                            
-                        _LOGGER.info("Full URL provided.")
-                        self._state = "URL found"
-                        self._comic_url = i['src']
-                        break                         
-                    else:                    
-                        _LOGGER.info("Partial URL provided.")
-                        self._comic_url = self._url + i['src']
-                        self._state = "URL found"
-                        break                           
-            except:       
-                comic = comic.find_all(id=re.compile("comic"))
-                _LOGGER.info("nothing found. Searching for comic tag in child.")
-                self._state = "Not found"
-                self._comic_url = None
+            self.check_url(c)
+            if self._state is None:
+                for i in c.find_all('img'):
+                    self.check_url(i)
+
 
     @property
     def name(self):
