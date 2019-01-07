@@ -1,5 +1,6 @@
 # Web-Comic-Downloader
 ![header](images/header.png)
+
 Home Assistant sensor that pulls the URL of webcomic image, given the webcomic URL. I tested on a few webcomics (Penny Arcade, Mr. Lovenstein, Awkward Zombie) and they work.
 
 Use with [Useful Markdown Card](https://github.com/thomasloven/lovelace-useful-markdown-card) to display the webcomic in a Lovelace card.
