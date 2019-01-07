@@ -1,7 +1,9 @@
 """
+Home Assistant sensor that searches through the URL of a webcomic site and finds the image URL of the comic.
+The image URL can then be used in a Lovelace card like Useful-Markdown to show the latest webcomic.
 
-Example from:
-https://developers.home-assistant.io/docs/en/creating_platform_example_sensor.html
+For more details, go here:
+https://github.com/dnguyen800/Web-Comic-Downloader
 
 """
 from datetime import timedelta
@@ -14,18 +16,17 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 
-REQUIREMENTS = ['bs4']         # Python libraries or modules needed for this sensor
-# DEPENDENCIES = ['mqtt']   # Other Home Assistant Components needed for this sensor to work.
+REQUIREMENTS = ['bs4']         
 
-import re                           # Regular expresssion object. Allows search using wildcards
-import requests                     # Sends HTTP request to website and saves the data
-from bs4 import BeautifulSoup       # Parses the HTML data into a Python object
+
+import re                           
+import requests                     
+from bs4 import BeautifulSoup      
 
 __version__ = '0.0.1'
 _LOGGER = logging.getLogger(__name__)
 
 
-# CONF_VARIABLE_NAME = 'variable_name_listed_in_configuration_yaml'
 CONF_NAME = 'name'
 CONF_URL = 'url'
 CONF_REFRESH = 'refresh'
@@ -36,7 +37,6 @@ ATTR_COMIC_URL = 'url'
 
 SCAN_INTERVAL = timedelta(hours=1)
 
-# Validate the sensor's user-defined configuration specified in configuration.yaml
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_NAME): cv.string,
     vol.Required(CONF_URL): cv.string,
@@ -46,7 +46,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup the sensor platform."""
-    _LOGGER.info("setup_platform called for Webcomic")   
     add_devices([ComicSensor(hass, config)])
 
 
@@ -57,13 +56,12 @@ class ComicSensor(Entity):
         self._name = config[CONF_NAME]
         self._url = config[CONF_URL]
         self._state = None
-        # This is where the comic URL data will be stored.
         self._comic_url = None
         self.update()
 
 
     def check_url(self, c):
-        """Checks URL for issues, such as incompleteness, or whitespaces"""
+        """Checks URL for issues, such as incomplete URLs, or whitespaces"""
         try:
             if c['src'][0:4] == 'http':                                         
                 self._comic_url = c['src'].replace(" ", "%20")
@@ -78,8 +76,6 @@ class ComicSensor(Entity):
     
     def update(self):
         """Fetch new state data for the sensor.
-
-        This is the only method that should fetch new data for Home Assistant.
         """      
         user_agent = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         r = requests.get(self._url, headers=user_agent)
