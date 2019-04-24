@@ -5,6 +5,8 @@ A Home Assistant sensor that pulls the URL of webcomic image, given the webcomic
 
 Use with [Useful Markdown Card](https://github.com/thomasloven/lovelace-useful-markdown-card) to display the webcomic in a Lovelace card.
 
+The latest version of this sensor is compatible with Home Assistant 0.89 or later. Previous versions of Home Assistant are no longer supported, though you can download release v0.0.1 of this sensor if you want to continue using on old versions of HA.
+
 ## Features
   - Instagram scraping added. Type in name of the Instagram user in the configuration to pull the latest posted IG photo.
 
@@ -18,8 +20,8 @@ Use with [Useful Markdown Card](https://github.com/thomasloven/lovelace-useful-m
 | ig_user | string | Optional | Type in the Instagram user name of the web comic. For example, 'system32comics'.
 
 ## Instructions
-1. Download the [Webcomic Sensor](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic.py).
-4. Place the `webcomic.py` file in your `config/custom_components/sensor` folder.
+1. In your config/custom_components folder, create a folder called `webcomic`
+2. Download the [__init__.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/__init__.py), [manifest.json](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/manifest.json), and [sensor.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/sensor.py) and save in `config/custom_components/webcomic`
 5. Include one of the following sensors in your `configuration.yaml`
 ```yaml
 - platform: webcomic
