@@ -5,8 +5,8 @@ The image URL can then be used in a Lovelace card like Useful-Markdown to show t
 For more details, go here:
 https://github.com/dnguyen800/Web-Comic-Downloader
 
-Instagram Scraper is from meetmangukiya.
-https://github.com/meetmangukiya/instagram-scraper
+Instagram Scraper code is from this url:
+https://stackoverflow.com/questions/50058208/how-do-i-scrape-a-full-instagram-page-in-python
 """
 from datetime import timedelta
 import logging
