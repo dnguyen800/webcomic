@@ -54,3 +54,18 @@ I am studying Python as a hobby and this is my first public project. Some fixes/
 
 ## Credits
   - [Useful Markdown Card](https://github.com/thomasloven/lovelace-useful-markdown-card) - To display the comic in a Lovelace card. 
+  
+  
+## Web Comics
+
+### Working Comics
+- [Penny Arcade](https://www.penny-arcade.com/comic)
+- [Mr. Lovenstein](http://www.mrlovenstein.com/)
+- [Awkward Zombie](http://awkwardzombie.com/)
+
+
+### Working Instagram (remember not to use full URL, just the IG username)
+- [System 32 Comics](https://www.instagram.com/system32comics/)
+- [Jim Benton Comics](https://www.instagram.com/jimbentonshots/)
+- [Nathan W. Pyle](https://www.instagram.com/nathanwpyle/)
+
