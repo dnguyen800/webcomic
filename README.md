@@ -21,7 +21,7 @@ The latest version of this sensor is compatible with Home Assistant 0.89 or late
 
 ## Instructions
 1. In your config/custom_components folder, create a folder called `webcomic`
-2. Download the [__init__.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/__init__.py), [manifest.json](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/manifest.json), and [sensor.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/sensor.py) and save in `config/custom_components/webcomic`
+2. Download the [`__init__.py`](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/__init__.py), [manifest.json](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/manifest.json), and [sensor.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/sensor.py) and save in `config/custom_components/webcomic`
 5. Include one of the following sensors in your `configuration.yaml`
 ```yaml
 - platform: webcomic
