@@ -1,5 +1,5 @@
 # Web Comic Sensor
-![header](images/header.png)
+![header](header.png)
 
 A Home Assistant sensor that pulls the URL of webcomic image, given the webcomic URL. I tested on a few webcomics (Penny Arcade, Mr. Lovenstein, Awkward Zombie) and they work. Compatibility is on a case-by-case basis, as every website has different ways of labeling their images in HTML.
 
