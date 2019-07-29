@@ -1,7 +1,7 @@
 {
   "domain": "webcomic",
   "name": "Webcomic",
-  "documentation": "https://github.com/dnguyen800/Webcomic-Sensor",
+  "documentation": "https://github.com/dnguyen800/Webcomic",
   "dependencies": [],
   "requirements": [
     "beautifulsoup4==4.7.1"

@@ -3,7 +3,7 @@ Home Assistant sensor that searches through the URL of a webcomic site and finds
 The image URL can then be used in a Lovelace card like Useful-Markdown to show the latest webcomic.
 
 For more details, go here:
-https://github.com/dnguyen800/Web-Comic-Downloader
+https://github.com/dnguyen800/webcomic
 
 Instagram Scraper code is from this url:
 https://stackoverflow.com/questions/50058208/how-do-i-scrape-a-full-instagram-page-in-python

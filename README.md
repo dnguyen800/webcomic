@@ -21,7 +21,7 @@ The latest version of this sensor is compatible with Home Assistant 0.89 or late
 
 ## Instructions
 1. In your config/custom_components folder, create a folder called `webcomic`
-2. Download the [__init__.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/__init__.py), [manifest.json](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/manifest.json), and [sensor.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/sensor.py) and save in `config/custom_components/webcomic`
+2. Download the [`__init__.py`](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/__init__.py), [manifest.json](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/manifest.json), and [sensor.py](https://raw.githubusercontent.com/dnguyen800/Webcomic-Sensor/master/webcomic/sensor.py) and save in `config/custom_components/webcomic`
 5. Include one of the following sensors in your `configuration.yaml`
 ```yaml
 - platform: webcomic
@@ -54,3 +54,18 @@ I am studying Python as a hobby and this is my first public project. Some fixes/
 
 ## Credits
   - [Useful Markdown Card](https://github.com/thomasloven/lovelace-useful-markdown-card) - To display the comic in a Lovelace card. 
+  
+  
+## Web Comics
+
+### Working Comics
+- [Penny Arcade](https://www.penny-arcade.com/comic)
+- [Mr. Lovenstein](http://www.mrlovenstein.com/)
+- [Awkward Zombie](http://awkwardzombie.com/)
+
+
+### Working Instagram (remember not to use full URL, just the IG username)
+- [System 32 Comics](https://www.instagram.com/system32comics/)
+- [Jim Benton Comics](https://www.instagram.com/jimbentonshots/)
+- [Nathan W. Pyle](https://www.instagram.com/nathanwpyle/)
+
