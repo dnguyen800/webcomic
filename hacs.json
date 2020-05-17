@@ -1,5 +1,5 @@
 {
-  "name": "Webcomic Sensor",
+  "name": "webcomic",
   "domains": ["sensor"],
   "render_readme": "True",
   "homeassistant": "0.99.9",
