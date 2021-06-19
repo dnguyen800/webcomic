@@ -1,6 +1,7 @@
 {
   "domain": "webcomic",
   "name": "Webcomic Sensor",
+  "version": "v0.0.2",
   "documentation": "https://github.com/dnguyen800/webcomic",
   "issue_tracker": "https://github.com/dnguyen800/webcomic/issues",
   "dependencies": [],
